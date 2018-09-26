@@ -1,0 +1,62 @@
+<div class="allBody">
+  <app-header></app-header>
+  <div class="container">
+    <mat-card class="card">
+      <h2 style="text-align: center;">Nuevo usuario</h2>
+      <table class="full-width" cellspacing="0">
+        <tr>
+          <td>
+            <mat-form-field class="full-width">
+              <mat-select placeholder="Seleccionar nueva clínica/consultorio">
+                <mat-option *ngFor="let clinica of _CreateUserService.clinicaList" [value]="clinica.id">
+                  {{clinica.description}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <mat-form-field class="full-width">
+              <mat-select placeholder="Perfil">
+                <mat-option *ngFor="let profile of _CreateUserService.profileList" [value]="profile.id">
+                  {{profile.description}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <mat-form-field class="full-width">
+              <mat-select placeholder="Tipo de usuario">
+                <mat-option *ngFor="let typeUser of _CreateUserService.typeUserList" [value]="typeUser.id">
+                  {{typeUser.description}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <mat-form-field class="full-width" appearance="outline">
+              <input matInput placeholder="USER NAME">
+            </mat-form-field>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <mat-form-field class="full-width" appearance="outline">
+              <input matInput type="password" placeholder="PASSWORD">
+            </mat-form-field>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <button mat-stroked-button class="full-width">GUARDAR USUARIO</button>
+          </td>
+        </tr>
+      </table>
+    </mat-card>
+  </div>
+</div>
