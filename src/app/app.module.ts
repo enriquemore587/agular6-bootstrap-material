@@ -13,6 +13,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SesionModule } from './sesion/sesion.module';
 import { UsuariosModule } from './usuarios/usuarios.module';
 import { StartComponent } from './start/start.component';
+import { CatalogosModule } from './catalogos/catalogos.module';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { StartComponent } from './start/start.component';
     BrowserAnimationsModule,
     SourceMaterialModule,
     SesionModule,
-    UsuariosModule
+    UsuariosModule,
+    CatalogosModule
   ],
   exports: [SourceMaterialModule],
   providers: [{ provide: LocationStrategy, useClass: HashLocationStrategy }, appToutingProviders],

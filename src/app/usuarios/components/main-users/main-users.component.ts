@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-main-users',
@@ -7,9 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MainUsersComponent implements OnInit {
 
-  constructor() { }
+  constructor(public _router: Router) { }
 
   ngOnInit() {
+  }
+
+  public salir(){
+    this._router.navigate(['/']);
   }
 
 }

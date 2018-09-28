@@ -20,7 +20,7 @@ const UserRoutingRoutes: Routes = [
     imports: [
         RouterModule.forChild(UserRoutingRoutes)
     ],
-    exports: [
+    exports: [ 
         RouterModule
     ]
 })
