@@ -14,4 +14,9 @@ export class AppComponent {
     //this._router.navigate(['/sesion-panel']);
   }
   title = 'app';
+  
+  public salir(){
+    this._router.navigate(['/']);
+  }
+
 }
