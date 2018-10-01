@@ -6,10 +6,11 @@
     <div class="sub-body">
       <div class="formulario container">
           <mat-form-field class="full-width" hintLabel="Max 30 characters">
-            <input matInput #input maxlength="30" placeholder="Introducir descripción">
+            <input matInput #input [(ngModel)]="_CivilStatusService.civilStatusSaveUpdate.description" maxlength="30" placeholder="Introducir descripción">
             <mat-hint align="end">{{input.value?.length || 0}}/30</mat-hint>
           </mat-form-field>
-        <button mat-stroked-button class="full-width">Guardar</button>
+        <button mat-stroked-button class="full-width"(click)="_CivilStatusService.SaveUpdate()" [disabled]="!_CivilStatusService.civilStatusSaveUpdate.description">{{_CivilStatusService.saveOrUpdate ? 'GUARDAR' : 'ACTUALIZAR'}}</button>
+        <button mat-stroked-button  color="warn" *ngIf="_CivilStatusService.civilStatusSaveUpdate.description" (click)="_CivilStatusService.clearData()" class="full-width">Cancelar</button>
       </div>
       <div class="lista">
         <div class="table-responsive">
@@ -19,22 +20,18 @@
                 <th scope="col">ID</th>
                 <th scope="col">DESCRIPTION</th>
                 <th scope="col">EDITAR</th>
-                <th scope="col">ESTATUS</th>
                 <th scope="col">ELIMINAR</th>
               </tr>
             </thead>
             <tbody>
-              <tr *ngFor="let a of [1,2,3,4,5,2,3,4,5,2,3,4,5]">
-                <td>Mark</td>
-                <td>Otto</td>
+              <tr *ngFor="let item of _CivilStatusService.lista">
+                <td>{{item.id}}</td>
+                <td>{{item.description}}</td>
                 <td>
                   <button mat-icon-button>
-                    <mat-icon aria-label="Example icon-button with a heart icon">edit</mat-icon>
+                    <mat-icon aria-label="Example icon-button with a heart icon" (click)="_CivilStatusService.itemToEdit(item)">edit</mat-icon>
                   </button>
                 </td>
-                <th scope="row">
-                  <mat-slide-toggle>HABILITAR</mat-slide-toggle>
-                </th>
                 <th scope="row">
                   <button mat-icon-button>
                     <mat-icon aria-label="Example icon-button with a heart icon">delete</mat-icon>
